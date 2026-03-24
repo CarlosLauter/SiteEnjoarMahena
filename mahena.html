@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>EBAAAA</title>
+
+<style>
+body {
+    background-color: #FFDE00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    font-family: 'Fredoka', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ffde00, #ffd000, #ffb300);
+}
+
+/* container */
+.box {
+    background: rgba(255,255,255,0.9);
+    padding: 40px;
+    border-radius: 30px;
+}
+
+/* texto principal */
+h1 {
+    font-size: 40px;
+    color: #ff7a00;
+    text-shadow: 3px 3px 0 #000;
+}
+
+/* banana gigante */
+.banana {
+    font-size: 100px;
+    animation: bounce 0.8s infinite;
+}
+
+.banana-img {
+    width: 250px;
+    margin-top: 20px;
+
+    animation: aparecer 0.6s ease forwards, bounce 1s infinite 0.6s;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: scale(0) rotate(-20deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+.banana-img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.banana-img:hover {
+    animation: bug 0.4s infinite;
+}
+
+.banana-img:hover {
+    animation: bug 0.2s infinite;
+    filter: hue-rotate(90deg) brightness(1.2);
+}
+
+@keyframes bug {
+    0%   { transform: scale(1) rotate(0deg); }
+    20%  { transform: scale(1.2, 0.8) rotate(5deg); }
+    40%  { transform: scale(0.8, 1.3) rotate(-5deg); }
+    60%  { transform: scale(1.3, 0.7) rotate(8deg); }
+    80%  { transform: scale(0.9, 1.2) rotate(-8deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.banana-bg {
+    position: fixed;
+    top: -50px;
+    font-size: 30px;
+    animation: cair 5s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes cair {
+    0% { transform: translateY(-50px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+/* efeito de digitação */
+.loading {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* botão voltar */
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: #ff7a00;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 5px 0 #c25d00;
+}
+
+.voltar:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #c25d00;
+}
+
+/* animação banana */
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+
+</style>
+
+<script>
+function mostrarResultado() {
+    setTimeout(() => {
+        document.getElementById("loading").innerText = "Analisando DNA...";
+    }, 500);
+
+    setTimeout(() => {
+        document.getElementById("loading").innerText = "Detectando traços...";
+    }, 1500);
+
+    setTimeout(() => {
+        document.getElementById("resultado").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+    }, 2500);
+}
+</script>
+
+</head>
+
+<body onload="mostrarResultado()">
+<div class="banana-bg" style="left:10%;">🍌</div>
+<div class="banana-bg" style="left:30%; animation-delay:1s;">🍌</div>
+<div class="banana-bg" style="left:50%; animation-delay:2s;">🍌</div>
+<div class="banana-bg" style="left:70%; animation-delay:3s;">🍌</div>
+<div class="banana-bg" style="left:90%; animation-delay:4s;">🍌</div>
+<div class="box">
+    <div id="loading" class="loading">Iniciando análise...</div>
+
+    <div id="resultado" style="display:none;">
+        <h1>RESULTADO: 100% BANANA 🍌</h1>
+        <img src="imagens/banana-mahena.png" class="banana-img">
+        <p>Mahena confirmada como cabeçudinha científica 🧠</p>
+
+        <a href="#" class="voltar" onclick="alert('Negar não muda a verdade 😈')">
+    Negar não muda a verdade 🍌
+</a>
+    </div>
+</div>
+
+</body>
+</html>
